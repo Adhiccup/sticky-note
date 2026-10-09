@@ -1,0 +1,132 @@
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  width: 100%;
+  min-height: 100%;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f5f7;
+}
+
+
+
+.app {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  min-height: 500px;
+}
+
+.toolbar {
+  height: 76px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 32px;
+  background: white;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.toolbar h1 {
+  font-size: 24px;
+  margin: 0;
+}
+
+.toolbar button {
+  padding: 12px 20px;
+  background: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.toolbar button:hover {
+  background: #1d4ed8;
+}
+
+.board {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+  background-color: #f8fafc;
+  background-image:
+    radial-gradient(
+      #cbd5e1 1px,
+      transparent 1px
+    );
+  background-size: 24px 24px;
+}
+
+
+.sticky-note {
+  display: flex;
+  flex-direction: column;
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  user-select: none;
+}
+
+.sticky-note--yellow {
+  background-color: #fff3a3;
+}
+
+.sticky-note--pink {
+  background-color: #ffc9de;
+}
+
+.sticky-note--blue {
+  background-color: #c7e7ff;
+}
+
+.sticky-note--green {
+  background-color: #d1f5c9;
+}
+
+.note-header {
+  padding: 12px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: grab;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.note-content {
+  flex: 1;
+  padding: 12px;
+  font-size: 14px;
+  overflow: auto;
+}
+
+.resize-handle {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 18px;
+  height: 18px;
+  cursor: nwse-resize;
+}
+
+.resize-handle::after {
+  content: "";
+  position: absolute;
+  right: 5px;
+  bottom: 5px;
+  width: 7px;
+  height: 7px;
+  border-right: 2px solid #666;
+  border-bottom: 2px solid #666;
+}
