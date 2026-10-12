@@ -9,7 +9,10 @@ export default function Board({
   children,
 }: BoardProps) {
   return (
-    <main className="board">
+    <main
+      className="board"
+      id="sticky-board"
+    >
       {children}
     </main>
   );

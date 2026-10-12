@@ -104,12 +104,48 @@ body {
   border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 }
 
+
 .note-content {
   flex: 1;
-  padding: 12px;
-  font-size: 14px;
-  overflow: auto;
+  min-height: 0;
+  padding: 10px;
+  overflow: hidden;
 }
+
+.note-textarea {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+
+  padding: 4px;
+  border: none;
+  outline: none;
+  resize: none;
+
+  background: transparent;
+  color: #1f2937;
+
+  font-family: inherit;
+  font-size: 14px;
+  line-height: 1.5;
+
+  overflow: auto;
+  user-select: text;
+  cursor: text;
+}
+
+.note-textarea::placeholder {
+  color: #6b7280;
+  opacity: 0.8;
+}
+
+.note-textarea:focus-visible {
+  outline: 2px solid rgba(37, 99, 235, 0.55);
+  outline-offset: -2px;
+  border-radius: 3px;
+}
+
 
 .resize-handle {
   position: absolute;
@@ -130,3 +166,152 @@ body {
   border-right: 2px solid #666;
   border-bottom: 2px solid #666;
 }
+
+
+.note-header {
+  padding: 12px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: grab;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  touch-action: none;
+}
+
+.note-header:active {
+  cursor: grabbing;
+}
+
+
+.resize-handle {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 20px;
+  height: 20px;
+  cursor: nwse-resize;
+  touch-action: none;
+  z-index: 2;
+}
+
+.resize-handle::after {
+  content: "";
+  position: absolute;
+  right: 5px;
+  bottom: 5px;
+  width: 8px;
+  height: 8px;
+  border-right: 2px solid #555;
+  border-bottom: 2px solid #555;
+}
+
+
+.trash-zone {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  width: 240px;
+  height: 85px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+
+  background: #fee2e2;
+  border: 2px dashed #ef4444;
+  border-radius: 12px;
+
+  color: #991b1b;
+  font-weight: 600;
+  font-size: 14px;
+
+  pointer-events: none;
+  z-index: 1000;
+
+  transition:
+    background-color 0.15s ease,
+    border-color 0.15s ease;
+}
+
+.trash-zone--active {
+  background: #fca5a5;
+  border-color: #b91c1c;
+}
+
+.trash-icon {
+  font-size: 25px;
+}
+
+
+.form-overlay {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(15, 23, 42, 0.45);
+  z-index: 2000;
+}
+
+.note-form {
+  width: 380px;
+  max-width: calc(100vw - 32px);
+  max-height: calc(100vh - 32px);
+  overflow-y: auto;
+  background: white;
+  padding: 28px;
+  border-radius: 12px;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.note-form h2 {
+  margin: 0 0 8px;
+  font-size: 22px;
+}
+
+.note-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.note-form input,
+.note-form select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.form-actions button {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 6px;
+  background: #2563eb;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.form-actions .cancel-button {
+  background: #e5e7eb;
+  color: #1f2937;
+}
+
+
